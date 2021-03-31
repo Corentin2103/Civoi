@@ -1,0 +1,228 @@
+<script>
+// Open the Modal
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+// Close the Modal
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n+1);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+
+<div>
+  {{>repertoireVue}}
+</div>
+{{#each detailPersonne}}
+<div class="global">
+  <div class="ImageProfil">
+    <img src="/images/vip/{{this.photo_adresse}}" alt="">
+  </div>
+  <div class="informations">
+    <label><strong>Nom :</strong> {{this.vip_prenom}} {{this.vip_nom}}</label></br>
+    <label><strong>Date de naissance: </strong>{{formatDate this.vip_naissance 'dddd D MMMM YYYY' }}</label></br>
+    <label><strong>Nationalite :</strong> {{this.nationalite_nom}}</label></br>
+
+    <!-- Acteur -->
+    {{#if ../EstActeur}}
+    <label><strong>Profession :</strong>
+      {{#ifCond ../sexe.vip_sexe '==' 'F'}}
+      Actrice
+      {{else}}
+      Acteur
+      {{/ifCond}}
+
+    </label></br>
+    {{#if ../Acteur}}
+    <label><strong>Principal(aux) film(s) :</strong>
+      {{#each ../Acteur}}
+      {{this.film_titre}} ({{formatDate this.film_daterealisation 'MMMM YYYY'}})
+      de <a class="info" href="/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}
+        <div class="popup">
+          <img src="/images/vip/{{this.photo_adresse}}" alt="">
+          <strong> {{this.vip_prenom}} {{this.vip_nom}}</strong>
+          <p>{{this.vip_texte}}</p>
+        </div>
+      </a></br>
+      {{/each}}
+    </label>
+    {{/if}}
+    {{/if}}
+
+<br><br>
+    <!-- Chanteur -->
+    {{#if ../estChanteur}}
+    <label><strong>Profession :</strong>
+      {{#ifCond ../sexe.vip_sexe '==' 'F'}}
+      Chanteuse
+      {{else}}
+      Chanteur
+      {{/ifCond}}
+
+    </label></br>
+    {{#if ../getInfoChanteur}}
+
+      {{#each ../getInfoChanteur}}
+      <label><strong>Spécialité : </strong></label>{{this.chanteur_specialite}}<br>
+      <label><strong>Album : </strong></label>{{this.album_titre}} ({{formatDate this.album_date 'MMMM YYYY'}})<br>
+      <label><strong>Maison de disque : </strong></label>{{this.maisondisque_nom}}<br>
+      <br><br>
+      {{/each}}
+    </label>
+    {{/if}}
+    {{/if}}
+
+
+
+
+<!-- Realisateur -->
+{{#if ../estRealisateur}}
+<label><strong>Profession :</strong>
+  {{#ifCond ../sexe.vip_sexe '==' 'F'}}
+  Réalisatrice
+  {{else}}
+  Réalisateur
+  {{/ifCond}}
+
+</label></br>
+{{#if ../getInfoRealisateur}}
+<label><strong>Films réalisés : </strong></label>
+  {{#each ../getInfoRealisateur}}
+  {{this.film_titre}} ({{formatDate this.film_daterealisation 'MMMM YYYY'}})<br>
+  <br><br>
+  {{/each}}
+</label>
+{{/if}}
+{{/if}}
+
+
+
+
+<!-- Couturier -->
+{{#if ../estCouturier}}
+<label><strong>Profession :</strong>
+  Couturier
+</label></br>
+{{/if}}
+<br><br>
+    <!-- Mannequin -->
+    {{#if ../Mannequin}}
+    <label><strong>Profession :</strong> Mannequin</label><br>
+    <label><strong>Principal(aux) défilé(s) :</strong>
+      {{#each ../Mannequin}}
+      {{this.defile_lieu}} ({{formatDate this.defile_date 'MMMM YYYY'}})
+      de <a class="info" href="/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}
+        <div class="popup">
+          <img src="/images/vip/{{this.photo_adresse}}" alt="">
+          <strong> {{this.vip_prenom}} {{this.vip_nom}}</strong>
+          <p>{{this.vip_texte}}</p>
+        </div>
+      </a></br>
+      {{/each}}
+    </label>
+    {{/if}}
+    <br>
+
+    <!-- MARIAGE -->
+    {{#if ../mariage}}
+    <br>
+    <label>
+      <strong>Mariage(s): </strong>
+      {{#each ../mariage}}
+      <a class="info" href="/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}
+        <div class="popup">
+
+          <img src="/images/vip/{{this.photo_adresse}}" alt="">
+          <strong> {{this.vip_prenom}} {{this.vip_nom}}</strong>
+
+          <p>{{this.vip_texte}}</p>
+
+        </div>
+
+      </a>
+      ({{formatDate this.date_evenement 'MMMM YYYY'}}
+      {{#if this.mariage_fin}} --> {{formatDate this.mariage_fin 'MMMM YYYY'}}{{/if}})
+      lieu : {{this.mariage_lieu}}</br>
+      {{/each}}
+    </label>
+    {{/if}}
+
+    <!-- LIAISON -->
+    {{#if ../liaison}}
+    <label><strong>Liaison(s) :</strong>
+      {{#each ../liaison}}
+      <a class="info" href="/vip/{{this.vip_numero}}">{{this.vip_prenom}} {{this.vip_nom}}
+        <div class="popup">
+          <img src="/images/vip/{{this.photo_adresse}}" alt="">
+          <strong> {{this.vip_prenom}} {{this.vip_nom}}</strong>
+          <p>{{this.vip_texte}}</p>
+        </div>
+      </a>
+      ({{formatDate this.date_evenement 'MMMM YYYY'}})
+      <strong>raison fin liaison :</strong> {{this.liaison_motiffin}}<br>
+      {{/each}}
+    </label>
+    {{/if}}
+
+
+
+    <label><strong>Qui suis-je ? :</strong> {{this.vip_texte}}</label>
+  </div>
+</div>
+<div class="imageLigne">
+  <div class="row">
+
+    {{#each ../photo}}
+    <img src="/images/vip/{{this.photo_adresse}}" class="hover-shadow" onClick="openModal();currentSlide({{@index}})" alt="">
+    {{/each}}
+  </div>
+</div>
+<!-- The Modal/Lightbox -->
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    {{#each ../photo}}
+    <div class="mySlides">
+      <div class="numbertext">{{@index}} / {{../../photo.length}}</div>
+      <img src="/images/vip/{{this.photo_adresse}}">
+      <p>{{this.photo_sujet}} - {{this.photo_commentaire}}</p>
+    </div>
+    <!-- Next/previous controls -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <!-- Caption text -->
+    {{/each}}
+  </div>
+</div>
+{{/each}}

@@ -1,0 +1,17 @@
+
+
+{{>repertoireVue}}
+
+<div class="affichage">
+  {{#each photoVip}}
+
+    <div class="test2">
+      <div>
+      <img src="/images/vip/{{this.photo_adresse}}" alt="">
+
+      <a href="/vip/{{this.vip_numero}}"><label>{{this.vip_prenom}} {{this.vip_nom}}</label></a>
+      </div>
+    </div>
+    {{/each}}
+
+</div>

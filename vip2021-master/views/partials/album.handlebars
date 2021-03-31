@@ -1,0 +1,141 @@
+
+
+{{#if Photo}}
+<div class="album">
+{{#each Photo}}
+
+<a href="/album/{{this.vip_numero}}"><img src="/images/vip/{{this.photo_adresse}}" onClick ="cliquer({{@index}})" class="imageAlbum"></a>
+
+{{/each}}
+<br>
+
+<button class="precedent" onclick="precedent()">Precedent</button>
+<button class="debut" onclick="debut()">Début</button>
+<button class="suivant" onclick="suivant()">Suivant</button>
+<button class="fin" onclick="fin()">fin</button>
+</div>
+
+
+{{/if}}
+<script>
+
+let compteur = 0;
+var imageAlbum = document.getElementsByClassName('imageAlbum');
+var boutonSuivant = document.getElementsByClassName('suivant')[0];
+var boutonPrecedent = document.getElementsByClassName('precedent')[0];
+var boutonFin = document.getElementsByClassName('fin')[0];
+var boutonDebut = document.getElementsByClassName('debut')[0];
+function cliquer(index){
+  imageAlbum[index].style.opacity = "1";
+}
+function fin(){
+  for (let i = 36 ; i< imageAlbum.length; i++){
+    imageAlbum[i].style.display = "inline-block";
+  }
+  for (let i = 0 ; i<36; i++){
+    imageAlbum[i].style.display = "none";
+  }
+  boutonSuivant.style.display = "none";
+  boutonFin.style.display = "none";
+  boutonDebut.style.display = "block";
+  boutonPrecedent.style.display = "block";
+  compteur = 2;
+}
+function debut(){
+  for (let i = 0 ; i< 12; i++){
+    imageAlbum[i].style.display = "inline-block";
+  }
+  for (let i = 12 ; i<imageAlbum.length; i++){
+    imageAlbum[i].style.display = "none";
+  }
+  boutonDebut.style.display = "none";
+  boutonFin.style.display = "block";
+  boutonPrecedent.style.display = "none";
+  boutonSuivant.style.display = "block";
+  compteur = 0;
+}
+function suivant(){
+  console.log(compteur);
+  if (compteur == 0){
+    for (let i = 12 ; i<24; i++){
+      imageAlbum[i].style.display = "inline-block";
+    }
+    for (let i = 0 ; i<12; i++){
+      imageAlbum[i].style.display = "none";
+    }
+    boutonPrecedent.style.display = "block";
+    boutonDebut.style.display = "block";
+  }
+  if (compteur == 1){
+    for (let i = 24 ; i<36; i++){
+      imageAlbum[i].style.display = "inline-block";
+    }
+    for (let i = 12 ; i<24; i++){
+      imageAlbum[i].style.display = "none";
+    }
+
+  }
+  if (compteur == 2){
+    for (let i = 36 ; i< imageAlbum.length; i++){
+      imageAlbum[i].style.display = "inline-block";
+    }
+    for (let i = 24 ; i<36; i++){
+      imageAlbum[i].style.display = "none";
+    }
+    boutonFin.style.display = "none";
+  }
+  if(compteur == 2){
+    boutonSuivant.style.display = "none";
+  }else{
+    compteur += 1;
+    boutonSuivant.style.display = "block";
+  }
+}
+function precedent(){
+  console.log(compteur);
+  if (compteur == 0){
+    for (let i = 12 ; i<24; i++){
+      imageAlbum[i].style.display = "none";
+    }
+    for (let i = 0 ; i<12; i++){
+      imageAlbum[i].style.display = "inline-block";
+    }
+    boutonDebut.style.display = "none";
+  }
+  if (compteur == 1){
+    for (let i = 24 ; i<36; i++){
+      imageAlbum[i].style.display = "none";
+    }
+    for (let i = 12 ; i<24; i++){
+      imageAlbum[i].style.display = "inline-block";
+    }
+    boutonFin.style.display = "block";
+  }
+  if (compteur == 2){
+    for (let i = 36 ; i< imageAlbum.length; i++){
+      imageAlbum[i].style.display = "none";
+    }
+    for (let i = 24 ; i<36; i++){
+      imageAlbum[i].style.display = "inline-block";
+    }
+    boutonSuivant.style.display = "block";
+    boutonFin.style.display = "block";
+  }
+  if(compteur == 0){
+    boutonPrecedent.style.display = "none";
+  }else{
+    compteur -= 1;
+    boutonPrecedent.style.display = "block";
+  }
+}
+
+function test(){
+  for (let i = 0 ; i<12; i++){
+    var imageAlbum = document.getElementsByClassName('imageAlbum')[i];
+    imageAlbum.style.display = "inline-block";
+  }
+}
+
+test();
+
+</script>

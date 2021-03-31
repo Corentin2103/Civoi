@@ -1,0 +1,80 @@
+<h1> Mettre ici l'album photo des stars </h1>
+{{>album}}
+
+{{#if AlbumPhoto}}
+<label>{{vip_prenom}} {{vip_nom}}</label>
+  <div id="caroussel">
+    <a class="prev-slide" href="#">&#60;</a>
+    <div id="slides">
+        {{#each AlbumPhoto}}
+
+        <img src="/images/vip/{{this.photo_adresse}}" >
+        <fieldset>
+            <legend>Commentaires</legend>
+            {{this.photo_commentaire}}
+        </fieldset>
+        {{/each}}
+    </div>
+  <a class="next-slide" href="#">&#62;</a>
+
+</div>
+
+  <!--
+  <label>{{this.vip_prenom}} {{this.vip_nom}}</label>
+  <div class="albumPhoto">
+
+    <img src="/images/vip/{{this.photo_adresse}}" class="">
+  </div>
+  <div class="libelleAlbum">
+    Commentaire
+  </div>
+  <div class="textBaseAlbum">
+    <p>{{this.photo_commentaire}}</p>
+  </div>
+-->
+
+
+{{else}}
+<div class="libelleAlbum">
+Album
+</div>
+<div class="textBaseAlbum">
+  <p>Choisissez un vip pour voir ses photos</p>
+</div>
+{{/if}}
+<script>
+    const img = document.querySelector("#caroussel").querySelectorAll("img");
+    const fieldset = document.querySelector("#caroussel").querySelectorAll("fieldset");
+    for (const i of img) i.style.display = "none";
+    for (const i of fieldset) i.style.display = "none";
+
+    const imgCount = img.length;
+    let current = 0;
+    img[current].style.display = "";
+    let next = document.querySelector(".next-slide");
+    let prev = document.querySelector(".prev-slide");
+
+    function changeSlide(inc) {
+        img[current].style.display = "none";
+        fieldset[current].style.display = "none";
+
+        current += inc;
+
+        if (current >= imgCount) current--;
+        if (current < 0) current++;
+
+        if (current == 0) prev.classList.add("disabled");
+        else prev.classList.remove("disabled");
+
+        if (current == imgCount - 1) next.classList.add("disabled");
+        else next.classList.remove("disabled");
+
+        fieldset[current].style.display = "";
+        img[current].style.display = "";
+    }
+
+    // Controls
+    next.addEventListener("click", () => changeSlide(1));
+    prev.addEventListener("click", () => changeSlide(-1));
+    changeSlide(0);
+</script>

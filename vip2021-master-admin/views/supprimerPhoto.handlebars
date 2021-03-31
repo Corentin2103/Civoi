@@ -1,0 +1,12 @@
+{{>menuPhoto}}
+<div class="libelle">
+  Supprimer Photo
+</div>
+<table class="photo">
+{{#each ListePhoto}}
+<tr><td>
+
+<img class="photoVip" src="/images/vip/{{this.photo_adresse}}"><a href="/photo/supprimerPhoto/{{this.vip_numero}}/{{this.photo_numero}}"><img class="Suppr" src="/images/boutonSupprimer copie.jpg">
+</td></tr>
+{{/each}}
+</table>

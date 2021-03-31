@@ -1,0 +1,25 @@
+
+  {{#if Article}}
+  {{#each Article}}
+  <div class="libelle">
+  Article
+  </div>
+  <div class="article">
+    <p>
+      <label>{{this.vip_prenom}} {{this.vip_nom}}</label><br><br>
+      {{this.article_resume}}<br><br>
+
+      [Ajouté le {{formatDate this.article_date_insert 'D MMMM YYYY'}}] <a href="/vip/{{this.vip_numero}}">voir sa fiche</a>
+
+    </p>
+  </div>
+  <br>
+  {{/each}}
+  {{else}}
+  <div class="libelle">
+  Article
+  </div>
+  <div class="textBase">
+    <p>Choisissez un vip pour voir les articles le concernant</p>
+  </div>
+  {{/if}}

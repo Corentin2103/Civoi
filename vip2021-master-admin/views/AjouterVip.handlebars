@@ -1,0 +1,33 @@
+
+
+
+
+{{>menuVips}}
+<div class="libelle">
+  Ajout VIPs
+</div>
+<form class="formulaireAjoutVip" action="/administration/ajouterVip/form" method ="post" enctype="multipart/form-data">
+  <div class="textBase">
+    <label>Nom :</label><input type="text" name="nom"><br><br>
+    <label>Prenom :</label><input type="text" name="prenom"><br><br>
+    <label>Sexe :</label>
+    <select name="sexe">
+      <option value="">--Choisir--</option>
+      <option value="M">Masculin</option>
+      <option value="F">Feminin</option>
+
+    </select><br><br>
+    <label>Date de naissance :</label><input type="date" name="naissance"><br><br>
+    <label>Nationalité :</label>
+    <select name="nationalite">
+        <option value="">--Choisir--</option>
+      {{#each ListeNationalite}}
+      <option value="{{this.nationalite_numero}}">{{this.nationalite_nom}}</option>
+      {{/each}}
+    </select><br><br>
+    <label>Commentaire :</label><textarea name="text"></textarea><br><br>
+    <label>Sélectionner l'image :</label><input type="file" name="image"><label>Sujet :</label><input type="text" name="sujet"><br><br>
+    <input type="submit" name="Ajouter" value="Ajouter">
+  </div>
+
+</form>

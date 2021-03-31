@@ -1,0 +1,12 @@
+{{>menuVips}}
+<div class="libelle">
+  Supprimer VIPs
+</div>
+<br>
+<table>
+{{#each ListePers}}
+<tr><td>
+{{this.vip_nom}} {{this.vip_prenom}} <a href="/administration/supprimerVIp/{{this.vip_numero}}"><img src="/images/boutonSupprimer copie.jpg"></a>
+</td></tr>
+{{/each}}
+</table>

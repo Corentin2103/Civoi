@@ -1,0 +1,433 @@
+body {
+    font-family: "Segoe UI", "DejaVu Sans",Verdana, sans-serif;
+    background-image:-webkit-linear-gradient(#9f0909, #4e0000);
+    background-image:-o-linear-gradient(#9f0909, #4e0000);
+    background-image:linear-gradient(#9f0909, #4e0000);
+    background-size: 1rem 200rem;
+    font-size:0.8em;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #000000;
+}
+.monBody #container {
+    width: 1300px;
+    margin: 0 auto;
+    background:#ffffff;
+}
+.monBody #header {
+    height:140px;
+    background-color:#000;
+    color:#fff;
+}
+
+.menu_haut {background-color:#000;color:#fff;margin-top:-13px;width:100%;}
+.menu_haut ul {
+	width:100%;
+	text-align:center;
+	height:30px;
+	margin-left:-50px;
+	margin-right:-50px;
+	}
+.menu_haut li {
+	text-decoration:none;
+	font-weight:bold;
+	display:inline;
+	font-size:14px;
+	padding:10px 10px 10px 10px;
+	color:#fff;
+	}
+.menu_haut li a {
+	color: #fff;
+	text-decoration: none;
+	display: inline;
+	height: 100%;
+	border: 0 none;
+}
+.menu_haut li a:hover {
+	color:#000;
+	background:#eee;
+}
+
+.monBody #contenu {
+    padding:20px;
+    overflow: auto;
+}
+.monBody #footer {
+    padding: 0 10px;
+    font-size:0.8em;
+    text-align:center;
+    height:150px;
+    background:url(/image/footer.jpg) no-repeat;
+}
+.baniere{float:left;
+  margin-top:20px;
+  margin-left:5px;
+  border:none;}
+.baniere img{
+  border:none;
+}
+
+#LogoNode {
+    max-height: 20%;
+    max-width: 20%;
+}
+div .test{
+  display: inline-block;
+}
+
+
+.test label {
+  font-size : 1.5em;
+}
+.test a {
+    font-size : 1.8em;
+    margin-left: 5px;
+    margin-right:  5px;
+    text-decoration:none;
+    color:#0072ff;
+}
+
+.traitVertical {
+  border-left: 1px white solid;
+}
+div .test2{
+    margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    max-width: 80px;
+
+}
+.test2 img {
+  width: 100%;
+  height: 100%;
+}
+
+.row > .column {
+  padding: 0 8px;
+
+}
+.imageLigne{
+  display : inline-block;
+  height : 150px;
+
+}
+.imageLigne img {
+  width : 15%;
+  height : 150px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Create four equal columns that floats next to eachother */
+.column img{
+  display:flex;
+  justify-content: flex-start;
+  width: 10%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-left: -600px;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: .4;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mySlides img{
+  width:25%;
+}
+.global{
+  margin-left: 20%;
+  margin-top: 5%;
+  margin-bottom : 5%;
+  text-align: center;
+}
+.ImageProfil{
+  float : left;
+  margin-right : 2%;
+  margin-bottom: 2%;
+}
+.informations{
+  text-align: left;
+}
+a.info {
+   position: relative;
+}
+a.info div {
+   display: none; /* On masque l'infobulle. */
+   text-decoration: none;
+   color: black;
+}
+a.info:hover {
+   background: none; /* Correction d'un bug d'Internet Explorer. */
+   z-index: 500; /* On définit une valeur pour l'ordre d'affichage. */
+
+   cursor: help; /* On change le curseur par défaut par un curseur d'aide. */
+}
+a.info:hover div {
+   display: inline; /* On affiche l'infobulle. */
+   position: absolute;
+   /* On change la valeur de la propriété white-space pour qu'il n'y ait pas de retour à la ligne non désiré. */
+   top: 30px; /* On positionne notre infobulle. */
+   left: 20px;
+   background: white;
+   padding: 3px;
+   border: 1px solid black;
+}
+.popup{
+  width : 400px;
+}
+.popup img{
+  width : 100px;
+  height : 100px;
+  float : left;
+  padding:5px;
+}
+.popup p{
+  text-align: left;
+  margin: 0;
+  width : 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.listeVip{
+  border : 1px solid black;
+  border-radius: 1%;
+  float : right;
+
+}
+.titre{
+  padding : 15%;
+  background-color: black;
+  font-size: 25px;
+  letter-spacing: 7px;
+  color : white;
+}
+.listeVip a{
+  text-decoration: none;
+  color: black;
+  border-bottom: 1px solid black;
+
+}
+.libelle{
+  background-color: white;
+  z-index:1;
+  float:left;
+  margin-left: 55px;
+  padding:5px;
+}
+.libelleAlbum{
+  background-color: white;
+  z-index:1;
+  float:left;
+  margin-left: 55px;
+  padding :5px;
+}
+.textBaseAlbum{
+  padding-top:1px;
+  display:block;
+
+}
+.textBaseAlbum p {
+  border : 1px solid black;
+  width: 750px;
+  margin-left: 35px;
+
+  text-align: left;
+  padding-left: 15px;
+
+}
+.textBase p {
+  border : 1px solid black;
+  width: 750px;
+  margin-left: 35px;
+  padding-top:15px;
+  margin-top: 15px;
+  text-align: left;
+  padding-left: 15px;
+
+}
+.textBase{
+  display:block;
+}
+.article p{
+  border : 1px solid black;
+  width: 750px;
+  margin-left: 35px;
+  padding-right: 35px;
+  padding-top:15px;
+  padding-bottom: 35px;
+  text-align: left;
+  text-align: justify;
+  padding-left: 15px;
+
+}
+.article label{
+  font-weight: bold;
+  border-bottom:1px solid black;
+
+}
+.article{
+  display:block;
+}
+
+.imageAlbum{
+  width : 50px;
+  height : 50px;
+  display: none;
+  opacity : 0.4;
+}
+.suivant{
+  display: block;
+  float: right;
+  margin-right : 20px;
+  width : 45px;
+  font-size: 10px;
+}
+.precedent{
+    display: none;
+    float: left;
+    margin-left : 20px;
+    width : 55px;
+    font-size: 10px;
+}
+.fin{
+  display: block;
+  float: right;
+  margin-right : 5px;
+  width : 45px;
+  font-size: 10px;
+}
+.debut{
+    display: none;
+    float: left;
+    margin-left : 5px;
+    width : 50px;
+    font-size: 10px;
+}
+.album{
+  width: 250px;
+  float : right;
+  padding : 5px;
+  border : 1px solid black;
+}
+.albumPhoto img{
+  width : 150px;
+  height : 150px;
+}
+* .disabled {
+    color: currentColor;
+    cursor: default;
+    opacity: 0.5;
+    text-decoration: none;
+}

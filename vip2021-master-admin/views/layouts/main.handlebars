@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" type="image/png" href="/css/etoile.ico" sizes="16x16"/>
+  <link rel="stylesheet" href="/css/admin.css" />
+  <title> {{title}}</title>
+</head>
+
+
+<body class="monBody">
+
+  {{#ifCond session.pseudo '==' undefined}}
+  {{{body}}}
+  {{else}}
+    <div id="header">
+    <div class="baniere"><img src="/images/sixvoix.png" alt="SIXVOIX l'encyclopédie des stars" /> </div>
+  </div>
+  <div class="estConnecte">
+    Bonjour {{session.pseudo}} <a href="/deconnexion">Déconnexion</a>
+  </div>
+  <br>
+  <div class="menu">
+    <ul>
+      <li><a href="/accueil">VIPS</a></li>
+      <li class="traitVertical"></li>
+      <li ><a href="/accueilPhoto">PHOTOS</a></li>
+    </ul>
+  </div>
+  <div id="container">
+    <div id="contenu">
+
+      {{{body}}}
+    </div>
+  </div>
+  {{/ifCond}}
+
+
+  <script src="/js/jquery.js"></script>
+  <script src="/js/lightbox.js"></script>
+
+</body>
+</html>

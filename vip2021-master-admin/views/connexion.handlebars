@@ -1,0 +1,17 @@
+
+<div class="titre">
+<label>Administration</label>
+</div>
+
+
+<form class="formulaire" action="/accueil" method ="post">
+  <div class="connexion">
+    <label>Login :</label><input name="login" type="text"><br><br>
+      <label>Mot de passe :</label><input name="password" type="password"><br><br>
+      </div>
+        <input class="boutonConnexion" name="connexion" type="submit" value="Connexion">
+
+    </form>
+{{#if error}}
+<p> {{error}} </p>
+{{/if}}

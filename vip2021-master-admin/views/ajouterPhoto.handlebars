@@ -1,0 +1,23 @@
+{{>menuPhoto}}
+<div class="libelle">
+  Ajouter Photo
+</div>
+<form class="formulaireAjoutVip" action="/photo/ajouterPhoto/form" method ="post" enctype="multipart/form-data">
+  <div class="textBase">
+    <label>Nom du vip :</label>
+    <select name="nom">
+      <option value="">--Choisir--</option>
+      {{#each ListeVip}}
+      <option value="{{this.vip_numero}}">{{this.vip_nom}} {{this.vip_prenom}}</option>
+
+      {{/each}}
+    </select><br><br>
+    <label>Photo :</label><input type="file" name="photo"><br><br>
+    <label>Titre :</label><input type="text" name="titre">
+    <br><br>
+
+    <label>Commentaire :</label><input type="text" name="commentaire"><br><br>
+    <input type="submit" name="Ajouter" value="Envoyer">
+  </div>
+
+</form>

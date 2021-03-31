@@ -1,0 +1,12 @@
+{{>menuVips}}
+<div class="libelle">
+  Modifier VIPs
+</div>
+<br>
+<table>
+{{#each ListePers}}
+<tr><td>
+{{this.vip_nom}} {{this.vip_prenom}} <a href="/administration/modifierVip/{{this.vip_numero}}"><img src="/images/boutonModifier copie.jpg"></a>
+</td></tr>
+{{/each}}
+</table>
